@@ -68,7 +68,7 @@ class Order(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="orders")
+        related_name="users")
 
     class Meta:
         ordering = ("-created_at",)

@@ -26,7 +26,7 @@ def create_order(
                     date = date = datetime.strptime(date, "%Y-%m-%d %H:%M")
                 except ValueError:
                     raise ValueError("Date must be "
-                                     "formatted as %y-%m-%d %H:%M")
+                                     "formatted as %Y-%m-%d %H:%M")
             order.created_at = date
             order.save()
 
@@ -37,7 +37,7 @@ def create_order(
             if row is None or seat is None or movie_session_id is None:
                 raise ValueError(
                     "Each ticket dictionary must contain row, "
-                    "seat, and movie_session_id keys."
+                    "seat, and movie_session keys."
                 )
             try:
                 movie_session = MovieSession.objects.get(id=movie_session_id)

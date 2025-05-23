@@ -41,6 +41,8 @@ def update_user(
         last_name: Optional[str] = None,
 ) -> User:
     user = get_user(user_id)
+    if user is None:
+        raise AttributeError(f"User with id {user_id} does not exist")
     if username is not None:
         user.username = username
     if email is not None:
